@@ -5,6 +5,8 @@ var ufo = data;
 let button= d3.select("#filter-btn");
 
 function runFilter(date) {
+    // clear out table for if user tried multiple dates
+    // cell.html("")
     let filteredData = ufo.filter(uf => uf.datetime === date);
         console.log(filteredData);
 return filteredData
@@ -13,7 +15,6 @@ return filteredData
 const runDOM= () => {
     // prevent page from refreshing
     d3.event.preventDefault();
-    // clear out table for if user tried multiple dates
 
     //select input element and get the value property of input
     let inputElement= d3.select("#datetime").property("value");
@@ -29,9 +30,14 @@ const runDOM= () => {
       Object.values(sighting).forEach(value => {
         let cell = row.append("td");
         cell.text(value);
+
+    // clear out table for if user tried multiple dates
+    // cell.html("")
       });
     });
 }
-
-button.on("click",runDOM);
-// text.on("submit", runFilter);
+function clear () {
+    tbody.html(" ");
+};
+button.on("click",clear,runDOM);
+// input.on("submit", runDOM);
