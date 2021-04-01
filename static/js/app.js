@@ -3,6 +3,7 @@ var ufo = data;
 
 // YOUR CODE HERE!
 let button= d3.select("#filter-btn");
+let form= d3.select("#form");
 // on page load, load Table with ufo data
 // populate table
 const tbody = d3.select("tbody");
@@ -45,4 +46,4 @@ const runDOM= () => {
 }
 
 button.on("click",runDOM);
-// input.on("submit", runDOM);
+form.on("submit", runDOM);
