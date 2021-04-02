@@ -1,3 +1,10 @@
+// from data.js
+var ufo = data;
+
+
+let button= d3.select("#filter-btn");
+let form= d3.select("#form");
+
 const tbody = d3.select("tbody");
 ufo.forEach(sighting => {
   let row = tbody.append("tr");
@@ -25,7 +32,7 @@ const runDOM= () => {
     d3.event.preventDefault();
 
     //select input element and get the value property of input
-    let inputElement= d3.select("#datetime").property("value");
+    let inputElement= d3.select(".form-control").property("value");
         console.log(inputElement);
     //clear table before
     //select parent
