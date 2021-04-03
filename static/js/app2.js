@@ -14,15 +14,16 @@ ufo.forEach(sighting => {
   });
 });
 
-function runFilter() {
-    const {datetime= '', city= '', state='', country= '', shape= ''}= this.state;
-    let filtered= [...posts];
-    filtered= filtered
-    .filter(post => post.datetime)
-    .filter(post => post.city)
-    .filter(post => post.state)
-    .filter(post => post.country)
-    .filter(post => post.shape)
+function runFilter(somearray) {
+    somearray // determine what is in somearray
+    // parse each datetime, city, etc
+    console.log(current)
+    let filtered= ufo
+    .filter(sighting => sighting.datetime === datetime)
+    .filter(sighting => sighting.city === city)
+    .filter(sighting => sighting.state === state)
+    .filter(sighting => sighting.country === country)
+    .filter(sighting => sighting.shape === shape)
 
     console.log(filtered)
 };
@@ -32,8 +33,11 @@ const runDOM= () => {
     d3.event.preventDefault();
 
     //select input element and get the value property of input
-    let inputElement= d3.select(".form-control").property("value");
+    let inputElement= d3.selectAll("#filters>li")._groups;
+        // d3.select(inputElement).input()
+
         console.log(inputElement);
+
     //clear table before
     //select parent
     tbody.html(" ");
@@ -49,7 +53,8 @@ const runDOM= () => {
 
       });
     });
-}
+};
 
+// d3.selectAll(".form-control").property("value").on("click")
 button.on("click",runDOM);
 form.on("submit", runDOM);
